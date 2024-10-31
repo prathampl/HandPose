@@ -22,7 +22,10 @@ class HandPoseRecognition:
 
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
-                # Get hand gesture (you can implement your own gesture recognition logic here)
+               # Draw the hand landmarks
+                self.mp_drawing.draw_landmarks(frame, hand_landmarks, self.mp_hands.HAND_CONNECTIONS)
+
+                # Get hand gesture (you can implement your own gesture 
                 gesture = self.recognize_gesture(hand_landmarks)
                 return gesture
 
